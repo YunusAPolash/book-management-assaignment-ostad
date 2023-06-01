@@ -1,4 +1,5 @@
 
+const { json } = require('body-parser');
 const Book = require('./../models/book');
 
 // Get and retrive all books
@@ -11,6 +12,23 @@ exports.books = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
+}
+
+// Get Book By Specific ID
+exports.bookSearch = async (req, res) =>{
+    try{
+        const id = req.params['id'];
+        const getBookData = await Book.findById(id);
+
+        if(!getBookData){
+            return res.json({ error: "Book not found" });
+        }
+        
+        res.status(200).json({status: "success",data:getBookData});
+    }catch(error){
+        console.log(error);
+    }
+
 }
 
 // Get and retrive all books
@@ -45,6 +63,44 @@ exports.booksCreate = async (req, res) => {
         console.log(error);
     }
 }
+
+
+// Book Update
+exports.bookUpdate = async (req, res) => {
+    try {
+
+        // The ID for Update
+        const id = req.params['id'];
+
+
+       
+        // Destructuring the data from reqest body
+         const {title, author, description, publishedYear} = req.body;
+        
+         if(!Number.isFinite(publishedYear)){
+             return res.json({ error: "publishedYear is must be a number" });
+         }
+
+        //  Updated values
+        const update = {
+            title,
+            author,
+            description,
+            publishedYear
+        }
+
+        const getRightBook = await Book.findByIdAndUpdate(id,update,{ new: true } )
+
+        if(!getRightBook){
+            return res.json({ error: "Somethings is wrong" });
+        }
+        res.status(200).json({message:"book updated successfully.",data:getRightBook});
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 
 
