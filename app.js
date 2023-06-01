@@ -37,6 +37,7 @@ app.use(rateLimit());
 // routes middleware
 readdirSync("./src/routes").map(r => app.use("/api/v1", require(`./src/routes/${r}`))) 
 
+
 // Undifine Route Handler
 app.use('*',function(req, res){
     res.status(404).json({messages: "404 | Page Not Found"});

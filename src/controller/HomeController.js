@@ -1,3 +1,3 @@
 exports.Home = (req, res) => {
-    res.status(200).json({status:"success",data:"This is experess home api."});
+    res.status(200).json({status:"success",data:"Welcome to Book Management"});
 }

@@ -1,11 +1,16 @@
 const app = require('./app');
-
+const mongoose = require("mongoose");
 
 require('dotenv').config({path: './.env'})
 // Applicaiton PORT 
-const PORT = process.env.RUNNING_PORT || 5050;
+const PORT = process.env.PORT || 5050;
 
 
-app.listen(PORT,function(){
-    console.log(`application is runned successfully at http://localhost:${PORT}`);
-})
+// Connect to DB and start server
+mongoose.connect(process.env.DATABASE)
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server Running on port ${PORT}`);
+        });
+    })
+    .catch((err) => console.log(err));
