@@ -38,8 +38,6 @@ To run this project, you will need to add the following environment variables to
 `PORT`
 `DATABASE`
 
-
-
 ## API Reference
 
 #### Get all Books
@@ -51,34 +49,30 @@ To run this project, you will need to add the following environment variables to
 #### Get Book By Id
 
 ```http
-  GET /api/books/:id
+  GET /api/v1/books/:id
 ```
 
 #### Create New Books
 
 ```http
-  POST /api/books
+  POST /api/v1/books
 ```
 
-
-| Parameter | Type     | Description            |
-| :-------- | :------- | :--------------------  |
-| `title`   | `string`| **Required**            |
-| `author`   | `string`| **Required**           |
-| `description`   | `string`| **Optional**      |
-| `publishedYear`   | `number`| **Optional**    |
-
+| Parameter       | Type     | Description  |
+| :-------------- | :------- | :----------- |
+| `title`         | `string` | **Required** |
+| `author`        | `string` | **Required** |
+| `description`   | `string` | **Optional** |
+| `publishedYear` | `number` | **Optional** |
 
 #### Update a Books By id
 
 ```http
-  PUT /api/books/:id
+  PUT /api/v1/books/:id
 ```
 
 #### Delete a Books By id
 
 ```http
-  DELETE /api/books/:id
+  DELETE /api/v1/books/:id
 ```
-
-
