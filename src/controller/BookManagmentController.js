@@ -101,6 +101,25 @@ exports.bookUpdate = async (req, res) => {
     }
 }
 
+// Book Delete
+exports.bookDelete = async (req, res) => {
+    try {
+
+        // The ID for Delete
+        const id = req.params['id'];
+
+        const deletingBook = await Book.findByIdAndDelete(id);
+
+        if(!deletingBook){
+            return res.json({ error: "Invalid Id" });
+        }
+        res.status(200).json({message:"book Deleted successfully."});
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 
 

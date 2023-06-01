@@ -1,6 +1,6 @@
-# Get Start with Express JS Application Boilerplate
+# Get started with Book CURD Applications
 
-Using this Boilerplate you can get start a quick project using express JS
+Using this book curd application you can create,read,update,delete books
 
 Follow 3 steps below :
 
@@ -9,7 +9,7 @@ Follow 3 steps below :
 Clone this repo using belows command
 
 ```bash
-   $ git clone https://github.com/YunusAPolash/express-boilerplate-for-start-projects
+   $ git clone https://github.com/YunusAPolash/book-management-assaignment-ostad
 ```
 
 ## Step 2 :
@@ -36,3 +36,49 @@ Thanks for using our boiler plate to starting your projects.
 To run this project, you will need to add the following environment variables to your .env file
 
 `PORT`
+`DATABASE`
+
+
+
+## API Reference
+
+#### Get all Books
+
+```http
+  GET /api/v1/books
+```
+
+#### Get Book By Id
+
+```http
+  GET /api/books/:id
+```
+
+#### Create New Books
+
+```http
+  POST /api/books
+```
+
+
+| Parameter | Type     | Description            |
+| :-------- | :------- | :--------------------  |
+| `title`   | `string`| **Required**            |
+| `author`   | `string`| **Required**           |
+| `description`   | `string`| **Optional**      |
+| `publishedYear`   | `number`| **Optional**    |
+
+
+#### Update a Books By id
+
+```http
+  PUT /api/books/:id
+```
+
+#### Delete a Books By id
+
+```http
+  DELETE /api/books/:id
+```
+
+
